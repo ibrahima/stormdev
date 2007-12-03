@@ -1,0 +1,15 @@
+PAGfx Converter, by Mollusk     www.palib.com
+If you have suggestions, problems, or anything, please mail me at mollusk@palib.info
+
+Converting PAGfx.ini
+Transparent Color : Magenta
+
+1 backgrounds :
+  menu : EasyBg, 256x192, Pal : menu_Pal, 494 tiles -> menu_Tiles and menu_Map
+
+1 palettes :
+  menu_Pal, 214 colors
+
+Converted in 0 minutes 0 seconds
+
+Finished !
