@@ -8,7 +8,7 @@
 #include "gfx/all_gfx.c"
 #include "gfx/all_gfx.h"
 
-char text[200]; // This will be our text...
+char *text="No version checked"; // This will be our text...
 int update();
 const float version = 0.01;
 // Function: main()
@@ -59,6 +59,7 @@ int main(int argc, char ** argv)
 		}
 		// Get the stylus position and show it on screen
 		PA_OutputText(1, 1, 11, "Stylus Position : %d, %d   ", Stylus.X, Stylus.Y);	
+		PA_OutputSimpleText(1, 1, 12, text);	
 		PA_WaitForVBL();
 	}
 	
@@ -66,5 +67,14 @@ int main(int argc, char ** argv)
 } // End of main()
 //Autoupdate function-returns 1 if successful update, 0 if no new update or -1 if failed.
 int update(){
+    PA_InitWifi(); //Initializes the wifi
+    PA_ConnectWifiWFC();
+	PA_OutputSimpleText(1, 1, 10, "Connected to Wifi");
+	char *buffer = new char[256*256];
+	PA_GetHTTP(buffer,"http://ib.freehostia.com/webcomicDS/version.txt");
+	PA_OutputSimpleText(1, 1, 10, buffer);
+	text=buffer;
+	Wifi_DisconnectAP();//disables wifi
+	Wifi_DisableWifi();
 	return -1;
 }
