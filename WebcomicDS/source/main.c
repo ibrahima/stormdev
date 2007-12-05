@@ -9,7 +9,8 @@
 #include "gfx/all_gfx.h"
 
 char text[200]; // This will be our text...
-
+int update();
+const float version = 0.01;
 // Function: main()
 int main(int argc, char ** argv)
 {
@@ -24,7 +25,6 @@ int main(int argc, char ** argv)
 	//PA_EasyBgLoad(1, 0, menu);	
 	PA_InitText(1, 0);  // Initialise the text system on the top screen
 
-	
 	u8 i;
 	// Infinite loop to keep the program running
 	while (1)
@@ -36,7 +36,27 @@ int main(int argc, char ** argv)
 		if (Stylus.Held) PA_OutputSimpleText(1, 6, 7, "Stylus is held !");
 		if (Stylus.Newpress) PA_OutputSimpleText(1, 6, 8, "Stylus is newly pressed !");
 		if (Stylus.Released) PA_OutputSimpleText(1, 6, 9, "Stylus is just released !");
-				
+		//check to see if stylus is on a button
+		if (Stylus.Held && Stylus.X>10 && Stylus.X<81 && Stylus.Y>68 && Stylus.Y<127)
+			PA_OutputSimpleText(1, 6, 10, "Vew Comics pressed!");
+		if (Stylus.Held && Stylus.X>92 && Stylus.X<163 && Stylus.Y>68 && Stylus.Y<127)
+			PA_OutputSimpleText(1, 6, 10, "Configure pressed!");
+		if (Stylus.Held && Stylus.X>172 && Stylus.X<243 && Stylus.Y>68 && Stylus.Y<127)
+		{
+			int updateStatus = update();
+			switch(updateStatus)
+			{
+		    case 1:
+				PA_OutputSimpleText(1, 6, 10, "Updated Successfully!");
+				break;
+			case 0:
+				PA_OutputSimpleText(1, 6, 10, "No new version.");
+				break;
+			case -1:
+				PA_OutputSimpleText(1, 6, 10, "Update failed.");
+				break;
+			}
+		}
 		// Get the stylus position and show it on screen
 		PA_OutputText(1, 1, 11, "Stylus Position : %d, %d   ", Stylus.X, Stylus.Y);	
 		PA_WaitForVBL();
@@ -44,3 +64,7 @@ int main(int argc, char ** argv)
 	
 	return 0;
 } // End of main()
+//Autoupdate function-returns 1 if successful update, 0 if no new update or -1 if failed.
+int update(){
+	return -1;
+}
