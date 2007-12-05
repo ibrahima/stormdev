@@ -2,13 +2,14 @@
 
 // Includes
 #include <PA9.h>       // Include for PA_Lib
-
+#include <fat.h>
 
 // Converted using PAGfx
 #include "gfx/all_gfx.c"
 #include "gfx/all_gfx.h"
 
 char *text="No version checked"; // This will be our text...
+char *conf="No configuration loaded"; // This will be our text...
 int update();
 const float version = 0.01;
 // Function: main()
@@ -25,13 +26,23 @@ int main(int argc, char ** argv)
 	//PA_EasyBgLoad(1, 0, menu);	
 	PA_InitText(1, 0);  // Initialise the text system on the top screen
 	u8 i;
+	fatInitDefault(); //Initialise fat library
+
+
+	FILE* testWrite = fopen ("webcomicds.cfg", "r+"); //w = create/truncate & write 
+	if(testWrite==NULL){
+		testWrite = fopen ("webcomicds.cfg", "w+"); //w = create/truncate & write 
+	}
+	fwrite("XKCD\nhttp://xkcd.com/atom.xml", 29, 1, testWrite);
+	fclose(testWrite);
+	
 	// Infinite loop to keep the program running
 	while (1)
 	{
 		// Erase the text on the screen...
 		for (i = 0; i < 24; i++) PA_OutputSimpleText(1, 0, 0+i, "                                ");
 		//Greet the user!
-		PA_OutputText(1, 2, 23, "Hi, %s!", PA_UserInfo.Name);
+		PA_OutputText(1, 2, 4, "Hi, %s!", PA_UserInfo.Name);
 		// Check the stylus presses :
 		if (Stylus.Held) PA_OutputSimpleText(1, 0, 2, "Stylus is held !");
 		if (Stylus.Newpress) PA_OutputSimpleText(1, 6, 8, "Stylus is newly pressed !");
