@@ -24,16 +24,16 @@ int main(int argc, char ** argv)
 	
 	//PA_EasyBgLoad(1, 0, menu);	
 	PA_InitText(1, 0);  // Initialise the text system on the top screen
-
 	u8 i;
 	// Infinite loop to keep the program running
 	while (1)
 	{
 		// Erase the text on the screen...
-		for (i = 0; i < 10; i++) PA_OutputSimpleText(1, 6, 7+i, "                              ");
-		
+		for (i = 0; i < 24; i++) PA_OutputSimpleText(1, 0, 0+i, "                                ");
+		//Greet the user!
+		PA_OutputText(1, 2, 23, "Hi, %s!", PA_UserInfo.Name);
 		// Check the stylus presses :
-		if (Stylus.Held) PA_OutputSimpleText(1, 6, 7, "Stylus is held !");
+		if (Stylus.Held) PA_OutputSimpleText(1, 0, 2, "Stylus is held !");
 		if (Stylus.Newpress) PA_OutputSimpleText(1, 6, 8, "Stylus is newly pressed !");
 		if (Stylus.Released) PA_OutputSimpleText(1, 6, 9, "Stylus is just released !");
 		//check to see if stylus is on a button
@@ -58,7 +58,7 @@ int main(int argc, char ** argv)
 			}
 		}
 		// Get the stylus position and show it on screen
-		PA_OutputText(1, 1, 11, "Stylus Position : %d, %d   ", Stylus.X, Stylus.Y);	
+		PA_OutputText(1, 0, 0, "%d, %d   ", Stylus.X, Stylus.Y);	
 		PA_OutputSimpleText(1, 1, 12, text);	
 		PA_WaitForVBL();
 	}
@@ -76,5 +76,6 @@ int update(){
 	text=buffer;
 	Wifi_DisconnectAP();//disables wifi
 	Wifi_DisableWifi();
+		PA_OutputSimpleText(1, 1, 10, "Disconnected from Wifi");
 	return -1;
 }
