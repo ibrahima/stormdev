@@ -29,13 +29,14 @@ int main(int argc, char ** argv)
 	fatInitDefault(); //Initialise fat library
 
 
-	FILE* testWrite = fopen ("webcomicds.cfg", "r+"); //w = create/truncate & write 
-	if(testWrite==NULL){
-		testWrite = fopen ("webcomicds.cfg", "w+"); //w = create/truncate & write 
+	FILE* config = fopen ("webcomicds.cfg", "r+"); //w = create/truncate & write 
+	if(config==NULL){
+		config = fopen ("webcomicds.cfg", "w+"); //w = create/truncate & write 
 	}
-	fwrite("XKCD\nhttp://xkcd.com/atom.xml", 29, 1, testWrite);
-	fclose(testWrite);
+	fwrite("XKCD\nhttp://xkcd.com/atom.xml", 29, 1, config);
+	fclose(config);
 	
+
 	// Infinite loop to keep the program running
 	while (1)
 	{
@@ -85,6 +86,9 @@ int update(){
 	PA_GetHTTP(buffer,"http://ib.freehostia.com/webcomicDS/version.txt");
 	PA_OutputSimpleText(1, 1, 10, buffer);
 	text=buffer;
+	FILE* tempFile = fopen ("temp.txt", "w+"); //w = create/truncate & write 
+	fwrite(buffer, 3, 1, tempFile);
+	fclose(tempFile);	
 	Wifi_DisconnectAP();//disables wifi
 	Wifi_DisableWifi();
 		PA_OutputSimpleText(1, 1, 10, "Disconnected from Wifi");
