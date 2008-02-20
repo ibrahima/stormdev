@@ -1,0 +1,68 @@
+<?xml?>
+<workspace_user>
+	<active_project>
+		<label>Final Project</label>
+	</active_project>
+	<projects>
+		<project>
+			<label>Final Project</label>
+			<showfiles>false</showfiles>
+		</project>
+	</projects>
+	<open_files>
+		<docitem>
+			<path>Client.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>Server.java</path>
+			<source>true</source>
+			<index>1</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>C:\Program Files\Java\jdk1.5.0_06\docs\api\java\io\InputStream.html</path>
+			<source>false</source>
+			<index>2</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>C:\Program Files\Java\jdk1.5.0_06\docs\api\java\net\Socket.html</path>
+			<source>false</source>
+			<index>3</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>C:\Program Files\Java\jdk1.5.0_06\docs\api\java\io\PrintWriter.html</path>
+			<source>false</source>
+			<index>4</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>C:\Program Files\Java\jdk1.5.0_06\docs\api\java\io\BufferedReader.html</path>
+			<source>false</source>
+			<index>5</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>C:\Program Files\Java\jdk1.5.0_06\docs\api\java\io\BufferedInputStream.html</path>
+			<source>false</source>
+			<index>6</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Collidable.java</path>
+			<source>true</source>
+			<index>7</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Ship.java</path>
+			<source>true</source>
+			<index>8</index>
+			<active>false</active>
+		</docitem>
+	</open_files>
+</workspace_user>
