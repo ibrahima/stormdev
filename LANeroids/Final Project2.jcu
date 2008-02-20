@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace_user>
+	<active_project>
+		<label>Final Project</label>
+	</active_project>
+	<projects>
+		<project>
+			<label>Final Project</label>
+			<showfiles>false</showfiles>
+			<fileitem>
+				<path>GameGui.java</path>
+				<collapsedfolds>98</collapsedfolds>
+			</fileitem>
+		</project>
+	</projects>
+	<open_files>
+		<docitem>
+			<path>Ship.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Collidable.java</path>
+			<source>true</source>
+			<index>1</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>KeyBoardState.java</path>
+			<source>true</source>
+			<index>2</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>GameGui.java</path>
+			<source>true</source>
+			<index>3</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>Bullet.java</path>
+			<source>true</source>
+			<index>4</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Client.java</path>
+			<source>true</source>
+			<index>5</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Server.java</path>
+			<source>true</source>
+			<index>6</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Tester.java</path>
+			<source>true</source>
+			<index>7</index>
+			<active>false</active>
+		</docitem>
+	</open_files>
+</workspace_user>
