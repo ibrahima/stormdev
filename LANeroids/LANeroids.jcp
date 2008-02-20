@@ -6,12 +6,16 @@
 		<root_path>\</root_path>
 		<output_path>classes\</output_path>
 		<source_path>\</source_path>
-		<jdkprofile_ref>JDK version 1.6.0</jdkprofile_ref>
+		<jdkprofile_ref>JDK version 1.6.0_03</jdkprofile_ref>
 		<compiler_ref>&lt;Default&gt;</compiler_ref>
 		<ant_ref/>
 	</settings>
 	<ant_events/>
-	<run_items/>
+	<run_items>
+		<item run="Client"/>
+		<item run="Server"/>
+		<item run="Tester"/>
+	</run_items>
 	<runtimes>
 		<runtime>
 			<label>&lt;Default&gt;</label>
@@ -26,29 +30,40 @@
 	<libraries/>
 	<files>
 		<include>
+			<folderitem>
+				<path>src</path>
+			</folderitem>
 			<fileitem>
-				<path>Bullet.java</path>
+				<path>src\Bullet.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>Client.java</path>
+				<path>src\Client.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>Collidable.java</path>
+				<path>src\Collidable.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>GameGui.java</path>
+				<path>src\GameGui.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>KeyBoardState.java</path>
+				<path>src\KeyBoardState.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>Server.java</path>
+				<path>src\Server.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>Ship.java</path>
+				<path>src\Ship.java</path>
+				<folder>src</folder>
 			</fileitem>
 			<fileitem>
-				<path>Tester.java</path>
+				<path>src\Tester.java</path>
+				<folder>src</folder>
 			</fileitem>
 		</include>
 	</files>
