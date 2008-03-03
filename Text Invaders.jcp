@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+	<settings>
+		<label>Text Invaders</label>
+		<root_path>\</root_path>
+		<output_path>classes\</output_path>
+		<source_path>src\</source_path>
+		<jdkprofile_ref>JDK version 1.6.0_03</jdkprofile_ref>
+		<compiler_ref/>
+		<ant_ref/>
+	</settings>
+	<ant_events/>
+	<run_items>
+		<item run="Launcher"/>
+	</run_items>
+	<runtimes>
+		<runtime>
+			<label>&lt;Default&gt;</label>
+			<application_ref>&lt;Default&gt;</application_ref>
+			<applet_ref/>
+			<debugger_ref/>
+			<param/>
+			<run>Launcher</run>
+			<verify>true</verify>
+		</runtime>
+	</runtimes>
+	<libraries/>
+	<files>
+		<include>
+			<folderitem>
+				<path>src</path>
+			</folderitem>
+			<fileitem>
+				<path>src\Bullet.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\Collidable.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\GUI.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\KeyBoardState.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\Launcher.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\Ship.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\TextInvaders.java</path>
+				<folder>src</folder>
+			</fileitem>
+		</include>
+	</files>
+	<tasks/>
+</project>
