@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace>
+	<settings>
+		<label>Text Invaders</label>
+	</settings>
+	<users>
+		<user>
+			<path>Text Invaders2.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>Text Invaders.jcp</path>
+		</project>
+	</projects>
+</workspace>

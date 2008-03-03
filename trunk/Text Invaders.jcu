@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace_user>
+	<active_project>
+		<label>Text Invaders</label>
+	</active_project>
+	<projects>
+		<project>
+			<label>Text Invaders</label>
+			<showfiles>false</showfiles>
+		</project>
+	</projects>
+	<open_files>
+		<docitem>
+			<path>TextInvaders.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Collidable.java</path>
+			<source>true</source>
+			<index>1</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>GUI.java</path>
+			<source>true</source>
+			<index>2</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>KeyBoardState.java</path>
+			<source>true</source>
+			<index>3</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Bullet.java</path>
+			<source>true</source>
+			<index>4</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Launcher.java</path>
+			<source>true</source>
+			<index>5</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>Ship.java</path>
+			<source>true</source>
+			<index>6</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>..\..\..\..\..\..\Program Files (x86)\Java\jdk1.6.0_03\docs\api\java\awt\Graphics2D.html</path>
+			<source>false</source>
+			<index>7</index>
+			<active>false</active>
+		</docitem>
+	</open_files>
+</workspace_user>
