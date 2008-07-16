@@ -8,7 +8,6 @@ public class Ship extends Collidable{
 	private int health;
 	protected int invTimer=0;
 	protected int bTimer;
-	private int kills=0;
 	Point tip=new Point();
 	private Vector<Bullet> bullets=new Vector<Bullet>();
 	public Ship(){
@@ -35,13 +34,12 @@ public class Ship extends Collidable{
 			health=100;
 		}
 	}
-	public Ship(int x, int y, int health,int angle, int invTimer,int bTimer,int kills){
+	public Ship(int x, int y, int health,int angle, int invTimer,int bTimer){
 		super(x,y,32,32,health/4,"_/|^|\\_");
 		this.health=health;
 		this.angle=angle;
 		this.invTimer=invTimer;
 		this.bTimer=bTimer;
-		this.kills=kills;
 		//System.out.println("I have been constructed:"+x+","+y+","+32+","+32+","+health);
 	}
 	public Ship(int x, int y, int health){
