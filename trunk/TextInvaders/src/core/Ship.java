@@ -1,6 +1,9 @@
+package core;
+
 import java.awt.geom.*;
 import java.awt.*;
 import java.util.*;
+
 public class Ship extends Collidable{
 	private int health;
 	protected int invTimer=0;
@@ -23,18 +26,7 @@ public class Ship extends Collidable{
 		}
 		return false;
 	}
-	public void gotKill()
-	{
-		kills++;
-	}
-	public void lostKill()
-	{
-		kills--;
-	}	
-	public int getKills()
-	{
-		return kills;
-	}
+
 	public void respawn(){
 		if(health<=0) {
 			java.util.Random r = new java.util.Random();
@@ -61,8 +53,6 @@ public class Ship extends Collidable{
 		if(invTimer>0)return;
 		health-=Math.abs(other.getDmg());
 		invTimer=2;
-		//bounce off
-		//angle=360-angle;
 	}
 	public void up(){
 		y-=5;
@@ -77,13 +67,6 @@ public class Ship extends Collidable{
 		invTimer--;
 		bTimer--;
 
-		//needs to take into account the angle of rotation and stuff
-		y-=speed*Math.sin(Math.toRadians(angle));
-		x+=speed*Math.cos(Math.toRadians(angle));
-		if(speed>=0.1)
-			speed-=.1;
-		if(speed<=-0.1)
-			speed+=.1;
 		if(y<30) y=30;
 		if(y>561) y=561;
 		if(x<7) x=7;
@@ -104,13 +87,9 @@ public class Ship extends Collidable{
 		return iter;
 	}/**/
 	public void left(){
-//		angle+=5;
-//		if(angle>=360)angle-=360;
 		x-=5;
 	}
 	public void right(){
-//		angle-=5;
-//		if(angle<0)angle+=360;
 		x+=5;
 	}
 	public synchronized void shoot(){
@@ -168,17 +147,12 @@ public class Ship extends Collidable{
         return new Point2D.Double(cx, cy + dy);
     }
 	public int getAngle(){return angle;}
-
 	public int getHealth(){return health;}
 	public void setHealth(int health){this.health=health;}
 	public void setX(int x){this.x=x;}
 	public void setY(int y){this.y=y;}
 	public void draw(Graphics2D g2){
-//		Polygon p = getPoly();
-//		g2.setColor(Color.GREEN);
-//		g2.drawPolygon(p);
-//		g2.setPaint(Color.WHITE);
-//		g2.fill(p);
+
 		super.draw(g2);
 		g2.setPaint(Color.WHITE);
 		g2.fill3DRect(5,30,100,5,true);
