@@ -8,8 +8,9 @@ public class Bullet extends Collidable{
 	final int angle;
 	int turnsLeft=35;
 	final long bulletID;
+	Collidable owner;//should know who owns the bullet so we can delete it if necessary
 	public Bullet(int x, int y, int angle, int dmg){
-		super(x,y,1,6,dmg);
+		super(x,y,1,6,dmg,"||");
 		this.angle=angle;
 		bulletID=new Date().getTime();//each bullet should have its own unique ID so that you can remove them easily.
 	}
@@ -76,7 +77,6 @@ public class Bullet extends Collidable{
         return new Point2D.Double(cx, cy + dy);
     }
     public void draw (Graphics2D g2){
-    	g2.setColor(Color.CYAN);
-		g2.drawPolygon(this.getPoly());
+    	super.draw(g2);
     }
 }

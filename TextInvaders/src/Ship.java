@@ -9,7 +9,7 @@ public class Ship extends Collidable{
 	Point tip=new Point();
 	private Vector<Bullet> bullets=new Vector<Bullet>();
 	public Ship(){
-		super(25,25,32,32,10);
+		super(400,500,32,32,10,"_/|^|\\_");
 		health=100;
 	}
 	public synchronized boolean removeBullet(long id){
@@ -44,7 +44,7 @@ public class Ship extends Collidable{
 		}
 	}
 	public Ship(int x, int y, int health,int angle, int invTimer,int bTimer,int kills){
-		super(x,y,32,32,health/4);
+		super(x,y,32,32,health/4,"_/|^|\\_");
 		this.health=health;
 		this.angle=angle;
 		this.invTimer=invTimer;
@@ -53,7 +53,7 @@ public class Ship extends Collidable{
 		//System.out.println("I have been constructed:"+x+","+y+","+32+","+32+","+health);
 	}
 	public Ship(int x, int y, int health){
-		super(x,y,32,32,25);
+		super(x,y,32,32,25,"_/|^|\\_");
 		this.health=health;
 		System.out.println("I have been constructed:"+x+","+y+","+32+","+32+","+health);
 	}	
@@ -84,10 +84,10 @@ public class Ship extends Collidable{
 			speed-=.1;
 		if(speed<=-0.1)
 			speed+=.1;
-		if(y<0) y=0;
-		if(y>600) y=600;
-		if(x<0) x=0;
-		if(x>800) x=800;
+		if(y<30) y=30;
+		if(y>561) y=561;
+		if(x<7) x=7;
+		if(x>760) x=760;
 		if(speed<-20) speed=-20;
 		if(speed>20) speed=20;
 
@@ -96,7 +96,7 @@ public class Ship extends Collidable{
 		while(iter.hasNext()){
 			b=iter.next();
 			b.move();
-			if(b.getTL()<=0)iter.remove();
+			if(b.getY()<=0)iter.remove();
 		}
 	}
 	public synchronized Iterator<Bullet> getBullets(){
@@ -174,12 +174,13 @@ public class Ship extends Collidable{
 	public void setX(int x){this.x=x;}
 	public void setY(int y){this.y=y;}
 	public void draw(Graphics2D g2){
-		Polygon p = getPoly();
-		g2.setColor(Color.GREEN);
-		g2.drawPolygon(p);
+//		Polygon p = getPoly();
+//		g2.setColor(Color.GREEN);
+//		g2.drawPolygon(p);
+//		g2.setPaint(Color.WHITE);
+//		g2.fill(p);
+		super.draw(g2);
 		g2.setPaint(Color.WHITE);
-		g2.fill(p);
-		
 		g2.fill3DRect(5,30,100,5,true);
 		if(getHealth()<=20) g2.setPaint(Color.RED);
 		else if(getHealth()<=40) g2.setPaint(Color.ORANGE);

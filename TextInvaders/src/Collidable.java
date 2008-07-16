@@ -7,18 +7,22 @@ public abstract class Collidable{
 	protected int angle=90;
 	protected int dmg;
 	protected Polygon bounds;
+	protected String shape;
+	protected Font smallFont, bigFont;
 	public Collidable(){
 		x=0;
 		y=0;
 		width=1;
 		height=1;
+		shape="/\\";
 	}
-	public Collidable(int x, int y, int width, int height, int dmg){
+	public Collidable(int x, int y, int width, int height, int dmg, String shape){
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
 		this.dmg=dmg;
+		this.shape=shape;
 	}
 	public int getDmg(){
 		return dmg;
@@ -40,5 +44,14 @@ public abstract class Collidable{
 	public abstract void collide(Collidable other);
 	public int getX(){return x;}
 	public int getY(){return y;}
-	public abstract void draw(Graphics2D g2);
+	public void draw(Graphics2D g2){
+		if(smallFont==null){
+			smallFont=g2.getFont();
+			bigFont=smallFont.deriveFont((float)18);
+		}
+		g2.setFont(bigFont);
+		g2.setPaint(Color.WHITE);
+		g2.drawString(shape,x,y);
+		g2.setFont(smallFont);
+	}
 }

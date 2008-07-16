@@ -6,7 +6,7 @@
 		<root_path>\</root_path>
 		<output_path>classes\</output_path>
 		<source_path>src\</source_path>
-		<jdkprofile_ref>JDK version 1.6.0_03</jdkprofile_ref>
+		<jdkprofile_ref>JDK version 1.6.0_10</jdkprofile_ref>
 		<compiler_ref/>
 		<ant_ref/>
 	</settings>
@@ -37,6 +37,10 @@
 			</fileitem>
 			<fileitem>
 				<path>src\Collidable.java</path>
+				<folder>src</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\Enemy.java</path>
 				<folder>src</folder>
 			</fileitem>
 			<fileitem>
