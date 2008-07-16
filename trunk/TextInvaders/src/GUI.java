@@ -10,7 +10,7 @@ public class GUI extends JFrame{
 	BufferedImage backbuffer=new BufferedImage(800,600,BufferedImage.TYPE_INT_RGB );
 	ArrayList<String> msgs=new ArrayList<String>(5);
 	int fps=0,tfps=0;
-	long lastTime;
+	long lastTime, now, lastFrame;
 	public GUI(){
 		super("Text Invaders");
 		setBounds(0,0,800,600);
@@ -46,13 +46,17 @@ public class GUI extends JFrame{
 		ship.draw(bg);
 		//calculate fps
 		tfps++;
-		long now=new Date().getTime();
+		now=new Date().getTime();
 		if((now-lastTime)>1000)//A second has passed
 		{
 			lastTime=now;
 			fps=tfps;
 			tfps=0;
 		}
+		if(now-lastFrame<1000/60){
+			try{Thread.sleep(1000/60);} catch(InterruptedException e){}
+		}
+		lastFrame=now;
 		bg.setColor(Color.GREEN);
 		bg.drawString(fps+"FPS",750,40);		
 		//output messages
@@ -68,13 +72,7 @@ public class GUI extends JFrame{
 	public void update(){
 		paint(this.getGraphics());
 	}
-	public void drawCollidable(Collidable c, Graphics2D g2){
-		Polygon p = c.getPoly();
-		if(c.getClass().toString().equals("class Ship"))g2.setColor(Color.CYAN);
-		g2.drawPolygon(p);
-		if(c.getClass().toString().equals("class Ship"))g2.setPaint(Color.WHITE);
-		g2.fill(p);
-	}
+
 	public synchronized void addMsg(String msg){
 		msgs.add(msg);
 		while(msgs.size()>=6){
