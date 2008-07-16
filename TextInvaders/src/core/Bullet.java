@@ -1,3 +1,6 @@
+package core;
+
+
 import java.awt.Polygon;
 import java.awt.geom.*;
 import java.awt.Shape;
