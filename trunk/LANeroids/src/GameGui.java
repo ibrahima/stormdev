@@ -3,17 +3,20 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
 import java.util.*;
+import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 public class GameGui extends JFrame{
 	HashMap<String,Ship> map;
 	Client c;
-	BufferedImage backbuffer=new BufferedImage(800,600,BufferedImage.TYPE_INT_RGB );
+	//BufferedImage backbuffer=new BufferedImage(800,600,BufferedImage.TYPE_INT_RGB );
 	public static final long serialVersionUID = 1L;
 	int fps=0,tfps=0;
 	long lastTime;
 	KeyBoardState kb;
 	ArrayList<String> msgs=new ArrayList<String>(5);
+	BufferStrategy strategy;
+
 	public GameGui(Client c){
 		super("LAN Space Combat");
         setSize(800,600);
@@ -21,6 +24,8 @@ public class GameGui extends JFrame{
         setVisible(true);
         this.c=c;
         kb=new KeyBoardState(this);
+    	this.createBufferStrategy(2);
+    	strategy=this.getBufferStrategy();
 	}
 	public synchronized void addMsg(String msg){
 		msgs.add(msg);
@@ -52,24 +57,28 @@ public class GameGui extends JFrame{
 			}
 		}
 //		clear(g);
-		Graphics2D bg=(Graphics2D)backbuffer.getGraphics();
-		bg.setColor(Color.DARK_GRAY);
-		bg.fillRect(0, 0, 800, 600);
-		bg.setColor(Color.GREEN);
+		Graphics2D graphics;
+		try {
+			graphics = (Graphics2D) strategy.getDrawGraphics();
+		} catch (Exception e) {
+			return;
+		}		graphics.setColor(Color.DARK_GRAY);
+		graphics.fillRect(0, 0, 800, 600);
+		graphics.setColor(Color.GREEN);
 		Graphics2D g2=(Graphics2D)g;
 		if(map==null) return;
 		Iterator<String> iter=map.keySet().iterator();
-		bg.drawString("Scoreboard",15,45);
+		graphics.drawString("Scoreboard",15,45);
 		int y=60;
 		while(iter.hasNext()){
 			String k=iter.next();
 			Collidable temp=map.get(k);
 			//System.out.println("Drawing"+k+temp);
 			//drawing stuff
-			bg.setColor(Color.GREEN);
-			bg.drawString(k,temp.getX(),temp.getY());
-			bg.drawString(k+"\t "+((Ship)temp).getKills(),20,y);
-			drawShip(temp,bg);
+			graphics.setColor(Color.GREEN);
+			graphics.drawString(k,temp.getX(),temp.getY());
+			graphics.drawString(k+"\t "+((Ship)temp).getKills(),20,y);
+			drawShip(temp,graphics);
 			y+=15;
 			//g2.drawString(temp.toString(),0,500);
 		}
@@ -80,17 +89,18 @@ public class GameGui extends JFrame{
 			fps=tfps;
 			tfps=0;
 		}
-		bg.setColor(Color.GREEN);
-		bg.drawString(fps+"FPS",750,40);
+		graphics.setColor(Color.GREEN);
+		graphics.drawString(fps+"FPS",750,40);
 		//Draw messages, currently for debugging only
 		Iterator<String> msgIt=msgs.iterator();
 		int my=580;
 		while(msgIt.hasNext()){
-			bg.drawString(msgIt.next(),5,my);
+			graphics.drawString(msgIt.next(),5,my);
 			my-=15;
 		}
-		
-		g2.drawImage(backbuffer,null,0,0);
+		graphics.dispose();
+		//paint backbuffer to window
+		strategy.show();
 	//update();
 	}
 	public void update(){
