@@ -178,7 +178,6 @@ class connection extends Thread{
 	         		out.writeObject(null);
 	         	}
 	         	if(kills.containsKey(name)){
-	         		//print(name+" has a kill");
 	         		out.writeObject(kills.get(name));
 	         		kills.remove(name);
 	         	}
@@ -198,7 +197,7 @@ class connection extends Thread{
 	         	}/**/
 	         	else{
 	         		out.writeObject(null);
-	         	}	         	
+	         	}
 	         	out.flush();
 
 	      }
